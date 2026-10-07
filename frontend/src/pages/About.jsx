@@ -39,11 +39,6 @@ const technologies = [
     role: "Visualisation interactive dans React",
     reason: "Affiche les performances, importances et salaires descriptifs dans le navigateur.",
   },
-  {
-    name: "Render",
-    role: "Cible de déploiement envisagée",
-    reason: "Peut héberger l’API Flask et le site statique React comme deux services.",
-  },
 ];
 
 function About() {

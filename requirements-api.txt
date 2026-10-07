@@ -6,4 +6,3 @@ xgboost==3.4.1
 Flask>=3.1,<4
 Flask-Cors>=5,<7
 joblib>=1.4,<2
-gunicorn>=23,<27

@@ -73,7 +73,7 @@ Les pays, études et langages proposés proviennent des modalités apprises par 
 
 ![Démonstration de l’application : prédiction et tableau de bord](./outputs/demo/demo-projet2.gif)
 
-*L’enregistrement, réalisé en local, montre la saisie d’un profil, le résultat estimé et un aperçu du tableau de bord. Le lien de démonstration en ligne sera ajouté ici après le déploiement des deux services Render (voir la section Déploiement ci-dessous).*
+*Aperçu court enregistré en local : saisie d’un profil, résultat estimé et aperçu du tableau de bord. Une vidéo détaillée du parcours sera publiée sur [mon profil LinkedIn](https://www.linkedin.com/in/kawtar-boughal02) ; elle sera ajoutée ici une fois publiée.*
 
 ### Structure du projet
 
@@ -149,18 +149,6 @@ Ouvrir l’adresse Vite affichée, généralement `http://localhost:5173`. L’i
 
 L’API propose `GET /`, `GET /api/languages`, `GET /api/options`, `GET /api/metrics` et `POST /api/predict`.
 
-### Déploiement Render
-
-Le déploiement public n’est pas encore configuré. Après la publication du dépôt, créez deux services Render reliés à ce même dépôt. Pour l’API (**New → Web Service**), utilisez :
-
-- **Build command** : `pip install -r requirements-api.txt`
-- **Start command** : `gunicorn app.app:app`
-- **Root directory** : racine du dépôt
-
-Pour React (**New → Static Site**), utilisez le répertoire racine `frontend`, la commande de build `npm run build` et le répertoire publié `dist`. Définissez `VITE_API_URL` avec l’URL publique de l’API avant le build. Après la publication GitHub, `VITE_REPOSITORY_URL` peut aussi être définie pour afficher les liens du dépôt et du rapport dans la page À propos.
-
-Les URLs publiques seront ajoutées après le déploiement et un test complet des deux services. Sur l’offre gratuite de Render, une API inactive peut s’endormir et son premier réveil peut ralentir la première requête.
-
 ### Technologies et compétences
 
 | Technologie | Utilisation dans le projet |
@@ -172,7 +160,6 @@ Les URLs publiques seront ajoutées après le déploiement et un test complet de
 | TensorFlow/Keras | Comparaison expérimentale |
 | Flask, Flask-CORS | API REST et échanges cross-origin |
 | React, Vite, Recharts, jsPDF | Interface, graphiques et export PDF |
-| Render | Cible de déploiement envisagée |
 
 ### Limites et usage responsable
 
@@ -226,7 +213,7 @@ XGBoost has the lowest recorded errors and highest R² in the stored evaluation.
 
 The React application provides salary prediction, country comparison, a model dashboard, and project documentation. The Flask API exposes `/`, `/api/languages`, `/api/options`, `/api/metrics` and `/api/predict`.
 
-Watch the [short application demo](./outputs/demo/demo-projet2.gif), recorded locally and showing a profile, a salary prediction, and the model dashboard. The live demo link will be added here after both Render services are deployed.
+Watch the [short local application preview](./outputs/demo/demo-projet2.gif), showing a profile, a salary prediction, and the model dashboard. A longer walkthrough will be shared on [my LinkedIn profile](https://www.linkedin.com/in/kawtar-boughal02) and linked here after it is published.
 
 Install the Python environment and validate the project:
 
@@ -246,5 +233,3 @@ Run the backend from the repository root with `python app/app.py`, then run `npm
 ### Responsible use and limitations
 
 The survey is self-reported and not representative of all developers or countries. The model may reproduce existing disparities and does not establish causal effects. Its predictions are exploratory estimates, not normative salary recommendations or individual compensation advice. Temporal validation, newer data and subgroup bias analysis are important next steps.
-
-No public deployment URL is claimed yet. The API and frontend URLs should be added here after deploying both Render services and testing the complete application.

@@ -51,7 +51,6 @@ def validate_required_files(require_raw_data=False):
         ROOT / "rapport_final.md",
         ROOT / "requirements.txt",
         ROOT / "requirements-api.txt",
-        ROOT / "Procfile",
         ROOT / "app" / "app.py",
         ROOT / "frontend" / "package.json",
         ROOT / "frontend" / "src" / "App.jsx",

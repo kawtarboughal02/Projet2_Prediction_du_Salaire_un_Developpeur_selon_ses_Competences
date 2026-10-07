@@ -6,7 +6,7 @@ Ce projet explore la relation entre les caractéristiques professionnelles décl
 
 Les modèles évalués sont une Régression Linéaire, un Random Forest, XGBoost et un réseau de neurones TensorFlow/Keras. Dans les métriques sauvegardées, XGBoost obtient le meilleur résultat parmi les quatre modèles comparés : MAE de 22 649 USD, RMSE de 45 163 USD et R² de 0,362. Ces scores sont utiles pour comparer les modèles sur la partition choisie, mais l’erreur absolue reste élevée et ne rend pas les prédictions individuelles fiables pour fixer une rémunération.
 
-Le projet fournit également une API REST Flask et une interface React pour tester une estimation, comparer plusieurs pays et consulter les résultats. Le déploiement public reste à configurer ; aucun lien de démonstration en ligne n’est revendiqué.
+Le projet fournit également une API REST Flask et une interface React, exécutées localement, pour tester une estimation, comparer plusieurs pays et consulter les résultats.
 
 ## 2. Contexte, objectif et problématique
 
@@ -155,7 +155,7 @@ La capture animée ci-dessous illustre un parcours type : saisie d’un profil d
 
 ![Démonstration de l’application](./outputs/demo/demo-projet2.gif)
 
-*Démonstration réalisée en local. Le lien de démonstration en ligne sera ajouté après le déploiement des services (voir section 9).*
+*Aperçu court enregistré en local. Une vidéo détaillée du parcours sera publiée sur [mon profil LinkedIn](https://www.linkedin.com/in/kawtar-boughal02) et son lien direct sera ajouté ici après publication.*
 
 
 ## 7. Technologies
@@ -171,7 +171,6 @@ La capture animée ci-dessous illustre un parcours type : saisie d’un profil d
 | React, Vite | Application frontend |
 | Recharts | Graphiques interactifs |
 | jsPDF | Export PDF côté navigateur |
-| Render | Cible de déploiement prévue, non publiée à la rédaction de ce rapport |
 
 ## 8. Limites et considérations éthiques
 
@@ -225,13 +224,11 @@ npm.cmd run dev
 
 L’API locale est `http://127.0.0.1:5000`, et Vite affiche normalement `http://localhost:5173`.
 
-Pour un déploiement Render, le service API utilise `pip install -r requirements-api.txt` et `gunicorn app.app:app`. Le site React se construit avec `npm run build` depuis `frontend` et publie `dist`. Le déploiement public n’est pas encore effectué ; les liens ne seront ajoutés qu’après le déploiement et le test des services.
-
 ## 10. Conclusion et perspectives
 
 Le projet démontre une chaîne de traitement allant des données d’enquête à une interface de prédiction, tout en comparant quatre approches. Sur l’évaluation sauvegardée, XGBoost est le meilleur des modèles testés, sans pour autant produire une précision suffisante pour une décision individuelle.
 
-Les suites prioritaires sont l’encodage catégoriel sans ordre artificiel, une validation croisée ou temporelle selon la question étudiée, une analyse des erreurs et biais par sous-groupe, une estimation d’incertitude, l’actualisation des données et la publication vérifiée de l’application.
+Les suites prioritaires sont l’encodage catégoriel sans ordre artificiel, une validation croisée ou temporelle selon la question étudiée, une analyse des erreurs et biais par sous-groupe, une estimation d’incertitude et l’actualisation des données.
 
 ## English summary
 
