@@ -1,0 +1,17 @@
+# Dépendances d’analyse et des notebooks
+numpy>=1.26,<3
+pandas>=2.2,<4
+matplotlib>=3.8,<4
+seaborn>=0.13,<1
+scikit-learn==1.9.1
+xgboost==3.4.1
+tensorflow>=2.18,<3
+
+# API et sérialisation du modèle
+Flask>=3.1,<4
+Flask-Cors>=5,<7
+joblib>=1.4,<2
+gunicorn>=23,<27
+
+# Exécution des notebooks
+jupyter>=1.0,<2
