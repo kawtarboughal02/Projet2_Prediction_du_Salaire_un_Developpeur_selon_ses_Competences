@@ -209,6 +209,15 @@ function About() {
               target="_blank"
               rel="noreferrer"
             >
+              Démonstration complète — LinkedIn
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/kawtar-boughal02"
+              target="_blank"
+              rel="noreferrer"
+            >
               Kawtar Boughal — profil LinkedIn
             </a>
           </li>

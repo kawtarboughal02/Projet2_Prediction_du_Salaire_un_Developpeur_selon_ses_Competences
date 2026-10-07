@@ -58,9 +58,9 @@ XGBoost obtient les plus faibles erreurs et le R² le plus élevé parmi ces ré
 
 ![Importance des variables du modèle XGBoost](./outputs/figures/feature_importance.png)
 
-### Application
+### Application locale
 
-L’interface comprend quatre vues :
+L’interface comprend quatre vues, exécutées en local :
 
 - **Prédiction** : saisie du profil, estimation en USD, export PDF et historique temporaire de session.
 - **Comparateur** : comparaison du même profil entre plusieurs pays.
@@ -69,11 +69,24 @@ L’interface comprend quatre vues :
 
 Les pays, études et langages proposés proviennent des modalités apprises par le modèle. Les modalités inconnues sont refusées par l’API au lieu d’être silencieusement converties en une catégorie arbitraire.
 
+En développement local, les deux services utilisent des ports fixes :
+
+| Service | Adresse |
+|---|---|
+| API Flask | [http://127.0.0.1:5000](http://127.0.0.1:5000) |
+| Interface React (Vite) | [http://127.0.0.1:5173](http://127.0.0.1:5173) |
+
+Le frontend appelle toujours l’API à `http://127.0.0.1:5000` (`frontend/src/api.js`). Flask écoute le même port (`app/app.py`). Vite sert l’interface sur le port 5173 (`frontend/vite.config.js`).
+
 ### Démonstration
 
 ![Démonstration de l’application : prédiction et tableau de bord](./outputs/demo/demo-projet2.gif)
 
-*Aperçu court enregistré en local : saisie d’un profil, résultat estimé et aperçu du tableau de bord. Une vidéo détaillée du parcours sera publiée sur [mon profil LinkedIn](https://www.linkedin.com/in/kawtar-boughal02) ; elle sera ajoutée ici une fois publiée.*
+*Aperçu court enregistré en local : saisie d’un profil, résultat estimé et aperçu du tableau de bord.*
+
+La démonstration complète des quatre interfaces (Prédiction, Comparateur, Tableau de bord, À propos) est disponible sur LinkedIn :
+
+**[Voir la démonstration complète sur LinkedIn](https://www.linkedin.com/in/kawtar-boughal02)**
 
 ### Structure du projet
 
@@ -109,11 +122,11 @@ Les pays, études et langages proposés proviennent des modalités apprises par 
 
 ### Installation et validation
 
-Prérequis : Python 3.11 ou plus récent, Node.js LTS et npm. L’API de production n’installe que ses dépendances nécessaires ; `requirements.txt` contient aussi les bibliothèques d’analyse et TensorFlow utilisées par les notebooks.
+Prérequis : Python 3.11 ou plus récent, Node.js LTS et npm. Pour lancer uniquement l’API en local, `requirements-api.txt` suffit. `requirements.txt` contient aussi les bibliothèques d’analyse et TensorFlow utilisées par les notebooks.
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python validate_project.py
 
@@ -138,7 +151,13 @@ Dans un premier terminal PowerShell, à la racine du dépôt, démarrer l’API 
 .\venv\Scripts\python.exe app\app.py
 ```
 
-Laisser ce terminal ouvert. Dans un deuxième terminal PowerShell, démarrer le frontend :
+Laisser ce terminal ouvert. Vérifier que l’API répond dans PowerShell :
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:5000/
+```
+
+La réponse doit contenir `"status": "ok"`. Dans un deuxième terminal PowerShell, démarrer le frontend :
 
 ```powershell
 cd frontend
@@ -213,13 +232,13 @@ XGBoost has the lowest recorded errors and highest R² in the stored evaluation.
 
 The React application provides salary prediction, country comparison, a model dashboard, and project documentation. The Flask API exposes `/`, `/api/languages`, `/api/options`, `/api/metrics` and `/api/predict`.
 
-Watch the [short local application preview](./outputs/demo/demo-projet2.gif), showing a profile, a salary prediction, and the model dashboard. A longer walkthrough will be shared on [my LinkedIn profile](https://www.linkedin.com/in/kawtar-boughal02) and linked here after it is published.
+The application is run locally. Flask listens at `http://127.0.0.1:5000` and the React interface at `http://127.0.0.1:5173`. Watch the [short local preview](./outputs/demo/demo-projet2.gif). The full walkthrough of the four screens is on [LinkedIn](https://www.linkedin.com/in/kawtar-boughal02).
 
 Install the Python environment and validate the project:
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python validate_project.py
 cd frontend
@@ -228,7 +247,7 @@ npm.cmd run lint
 npm.cmd run build
 ```
 
-In one PowerShell terminal at the repository root, start the API with `.\.venv\Scripts\python.exe app\app.py` and leave that terminal open. In a second terminal, run `cd frontend` followed by `npm.cmd run dev`. Open `http://127.0.0.1:5173`; the React frontend calls the Flask API at `http://127.0.0.1:5000`. These local development ports are fixed; stop any other process using either port before starting the project.
+In one PowerShell terminal at the repository root, start the API with `.\venv\Scripts\python.exe app\app.py` and leave that terminal open. Verify it responds with `Invoke-RestMethod http://127.0.0.1:5000/`; the response should contain `"status": "ok"`. In a second terminal, run `cd frontend` followed by `npm.cmd run dev`. Open `http://127.0.0.1:5173`; the React frontend calls the Flask API at `http://127.0.0.1:5000`. These local development ports are fixed; stop any other process using either port before starting the project.
 
 ### Responsible use and limitations
 

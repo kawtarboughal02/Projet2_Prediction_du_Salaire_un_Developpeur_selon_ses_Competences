@@ -115,7 +115,7 @@ XGBoost gagne sur les trois valeurs enregistrées pour cette partition. Le rése
 
 Une MAE supérieure à 22 000 USD demeure importante. Une estimation peut donc être très éloignée du salaire observé, notamment pour des profils ou pays peu représentés. Les métriques ne doivent pas être présentées comme une garantie de précision universelle.
 
-## 6. Application web et architecture
+## 6. Application web et démonstration locale
 
 ```text
 Stack Overflow Developer Survey 2018
@@ -151,11 +151,19 @@ L’interface React comprend :
 
 L’historique n’est pas persistant : aucun compte ni base de données n’est implémenté. Le PDF est généré dans le navigateur.
 
-La capture animée ci-dessous illustre un parcours type : saisie d’un profil dans la page Prédiction, estimation obtenue, puis aperçu du Tableau de bord.
+L’application est exécutée localement. Les ports de développement sont fixes et cohérents dans le code :
+
+| Service | Adresse | Fichier de configuration |
+|---|---|---|
+| API Flask | `http://127.0.0.1:5000` | `app/app.py` |
+| Interface React | `http://127.0.0.1:5173` | `frontend/vite.config.js` |
+| Appels frontend vers l’API | `http://127.0.0.1:5000` | `frontend/src/api.js` |
+
+Cette exécution locale permet de présenter le produit sans hébergement payant. Une capture animée courte illustre un parcours type : saisie d’un profil, estimation, puis aperçu du tableau de bord.
 
 ![Démonstration de l’application](./outputs/demo/demo-projet2.gif)
 
-*Aperçu court enregistré en local. Une vidéo détaillée du parcours sera publiée sur [mon profil LinkedIn](https://www.linkedin.com/in/kawtar-boughal02) et son lien direct sera ajouté ici après publication.*
+*Aperçu court enregistré en local. La démonstration complète des quatre interfaces est publiée sur [LinkedIn](https://www.linkedin.com/in/kawtar-boughal02).*
 
 
 ## 7. Technologies
@@ -191,8 +199,8 @@ Avant un usage décisionnel, il faudrait disposer de données récentes et plus 
 Installer les dépendances analytiques :
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 ```
 
@@ -214,7 +222,13 @@ Lancer ensuite les deux services en local, dans deux terminaux PowerShell. Dans 
 .\venv\Scripts\python.exe app\app.py
 ```
 
-Laisser ce terminal ouvert. Dans le second :
+Laisser ce terminal ouvert. Vérifier que l’API répond dans PowerShell :
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:5000/
+```
+
+La réponse doit contenir `"status": "ok"`. Dans le second terminal :
 
 ```powershell
 cd frontend
@@ -232,6 +246,6 @@ Les suites prioritaires sont l’encodage catégoriel sans ordre artificiel, une
 
 ## English summary
 
-This project analyzes self-reported developer salaries from the Stack Overflow Developer Survey 2018 and delivers a Flask REST API with a React application. It compares Linear Regression, Random Forest, XGBoost and a TensorFlow/Keras neural network using MAE, RMSE and R² on a fixed random 80/20 split.
+This project analyzes self-reported developer salaries from the Stack Overflow Developer Survey 2018 and delivers a Flask REST API with a React application, both run locally (API on port 5000, interface on port 5173). It compares Linear Regression, Random Forest, XGBoost and a TensorFlow/Keras neural network using MAE, RMSE and R² on a fixed random 80/20 split.
 
 The stored results favor XGBoost (MAE USD 22,649; RMSE USD 45,163; R² 0.362); the TensorFlow run recorded MAE USD 27,844, RMSE USD 49,338 and R² 0.238. The remaining error is substantial and the evaluation does not establish future performance. Survey selection bias, self-reported values, arbitrary ordinal encoding and potential geographic or social bias limit the conclusions. Predictions are exploratory and must not be treated as normative salary recommendations.
