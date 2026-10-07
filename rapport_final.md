@@ -208,21 +208,21 @@ Pour exécuter tous les notebooks dans l’ordre et régénérer leurs sorties :
 python validate_project.py --execute-notebooks
 ```
 
-Lancer ensuite les deux services en local, dans deux terminaux :
+Lancer ensuite les deux services en local, dans deux terminaux PowerShell. Dans le premier, depuis la racine du dépôt :
 
 ```powershell
-# Terminal 1, depuis la racine
-python app/app.py
+.\venv\Scripts\python.exe app\app.py
 ```
 
+Laisser ce terminal ouvert. Dans le second :
+
 ```powershell
-# Terminal 2
 cd frontend
 npm.cmd install
 npm.cmd run dev
 ```
 
-L’API locale est `http://127.0.0.1:5000`, et Vite affiche normalement `http://localhost:5173`.
+Ouvrir `http://127.0.0.1:5173`. L’interface React appelle l’API Flask à `http://127.0.0.1:5000`. Les deux ports sont fixés pour le développement local ; si un port est déjà occupé, arrêter le programme qui l’utilise avant de relancer.
 
 ## 10. Conclusion et perspectives
 

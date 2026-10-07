@@ -132,20 +132,20 @@ python validate_project.py --execute-notebooks
 
 ### Lancer l’application en local
 
-Dans un premier terminal, à la racine :
+Dans un premier terminal PowerShell, à la racine du dépôt, démarrer l’API :
 
 ```powershell
-python app/app.py
+.\venv\Scripts\python.exe app\app.py
 ```
 
-Dans un deuxième terminal :
+Laisser ce terminal ouvert. Dans un deuxième terminal PowerShell, démarrer le frontend :
 
 ```powershell
 cd frontend
 npm.cmd run dev
 ```
 
-Ouvrir l’adresse Vite affichée, généralement `http://localhost:5173`. L’interface appelle par défaut l’API à `http://127.0.0.1:5000`. Pour une autre adresse, définir `VITE_API_URL` avant de lancer ou construire le frontend.
+Ouvrir `http://127.0.0.1:5173`. Le frontend utilise l’API Flask à `http://127.0.0.1:5000`. Ces ports sont fixés dans la configuration locale ; si l’un est déjà occupé, arrêter le programme qui l’utilise avant de relancer le projet.
 
 L’API propose `GET /`, `GET /api/languages`, `GET /api/options`, `GET /api/metrics` et `POST /api/predict`.
 
@@ -228,7 +228,7 @@ npm.cmd run lint
 npm.cmd run build
 ```
 
-Run the backend from the repository root with `python app/app.py`, then run `npm.cmd run dev` from `frontend` in PowerShell. The application defaults to `http://127.0.0.1:5000` for the API and Vite usually serves the frontend at `http://localhost:5173`.
+In one PowerShell terminal at the repository root, start the API with `.\.venv\Scripts\python.exe app\app.py` and leave that terminal open. In a second terminal, run `cd frontend` followed by `npm.cmd run dev`. Open `http://127.0.0.1:5173`; the React frontend calls the Flask API at `http://127.0.0.1:5000`. These local development ports are fixed; stop any other process using either port before starting the project.
 
 ### Responsible use and limitations
 
