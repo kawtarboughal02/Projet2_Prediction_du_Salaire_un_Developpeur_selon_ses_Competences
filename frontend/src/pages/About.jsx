@@ -205,7 +205,7 @@ function About() {
           </li>
           <li>
             <a
-              href="https://www.linkedin.com/in/kawtar-boughal02"
+              href="https://lnkd.in/p/ewqEGkZQ"
               target="_blank"
               rel="noreferrer"
             >

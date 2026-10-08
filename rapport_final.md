@@ -163,7 +163,7 @@ Cette exécution locale permet de présenter le produit sans hébergement payant
 
 ![Démonstration de l’application](./outputs/demo/demo-projet2.gif)
 
-*Aperçu court enregistré en local. La démonstration complète des quatre interfaces est publiée sur [LinkedIn](https://www.linkedin.com/in/kawtar-boughal02).*
+*Aperçu court enregistré en local. La démonstration est publiée sur [LinkedIn](https://lnkd.in/p/ewqEGkZQ). La vidéo MP4 locale est dans `outputs/demo/demo-projet2-linkedin.mp4` et est exclue de Git en raison de sa taille. Le code source est disponible sur [GitHub](https://github.com/kawtarboughal02/Projet2_Prediction_du_Salaire_un_Developpeur_selon_ses_Competences).*
 
 
 ## 7. Technologies

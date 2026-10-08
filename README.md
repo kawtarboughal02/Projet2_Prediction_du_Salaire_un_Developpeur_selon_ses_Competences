@@ -84,9 +84,7 @@ Le frontend appelle toujours l’API à `http://127.0.0.1:5000` (`frontend/src/a
 
 *Aperçu court enregistré en local : saisie d’un profil, résultat estimé et aperçu du tableau de bord.*
 
-La démonstration complète des quatre interfaces (Prédiction, Comparateur, Tableau de bord, À propos) est disponible sur LinkedIn :
-
-**[Voir la démonstration complète sur LinkedIn](https://www.linkedin.com/in/kawtar-boughal02)**
+La démonstration est publiée sur [LinkedIn](https://lnkd.in/p/ewqEGkZQ). La vidéo MP4 locale est dans `outputs/demo/demo-projet2-linkedin.mp4` ; elle est exclue de Git en raison de sa taille. Retrouvez le code source sur [GitHub](https://github.com/kawtarboughal02/Projet2_Prediction_du_Salaire_un_Developpeur_selon_ses_Competences).
 
 ### Structure du projet
 
@@ -232,7 +230,7 @@ XGBoost has the lowest recorded errors and highest R² in the stored evaluation.
 
 The React application provides salary prediction, country comparison, a model dashboard, and project documentation. The Flask API exposes `/`, `/api/languages`, `/api/options`, `/api/metrics` and `/api/predict`.
 
-The application is run locally. Flask listens at `http://127.0.0.1:5000` and the React interface at `http://127.0.0.1:5173`. Watch the [short local preview](./outputs/demo/demo-projet2.gif). The full walkthrough of the four screens is on [LinkedIn](https://www.linkedin.com/in/kawtar-boughal02).
+The application is run locally. Flask listens at `http://127.0.0.1:5000` and the React interface at `http://127.0.0.1:5173`. Watch the [short local preview](./outputs/demo/demo-projet2.gif). The full walkthrough of the four screens is on [LinkedIn](https://lnkd.in/p/ewqEGkZQ).
 
 Install the Python environment and validate the project:
 
